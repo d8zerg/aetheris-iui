@@ -1,0 +1,25 @@
+{
+  "name": "@aetheris-iui/angular",
+  "version": "0.1.0",
+  "description": "Angular service and module for Aetheris IUI",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "@angular/core": ">=17.0.0",
+    "rxjs": ">=7.0.0"
+  },
+  "dependencies": {
+    "@aetheris-iui/core": "*"
+  },
+  "devDependencies": {
+    "@angular/core": "^17.0.0",
+    "rxjs": "^7.8.0",
+    "typescript": "^5.4.0"
+  }
+}

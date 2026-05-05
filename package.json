@@ -1,0 +1,12 @@
+{
+  "name": "@aetheris-iui/workspace",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "packages/core",
+    "packages/web-components",
+    "packages/react",
+    "packages/vue",
+    "packages/angular"
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://aetheris-iui.dev/schemas/action-schema.v0.json",
+  "title": "Aetheris-IUI Action Schema",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "id",
+    "version",
+    "parameters",
+    "reversibility",
+    "blastRadius",
+    "idempotencyKey",
+    "dryRun",
+    "sideEffects",
+    "requiredScopes",
+    "confirmation",
+    "rollback",
+    "examples",
+    "validationRules"
+  ],
+  "properties": {
+    "id": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "version": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 128,
+      "pattern": "^[A-Za-z0-9_.:-]+$"
+    },
+    "parameters": {
+      "type": "object"
+    },
+    "reversibility": {
+      "enum": ["reversible", "compensable", "irreversible"]
+    },
+    "blastRadius": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["class", "maxEntities"],
+      "properties": {
+        "class": {
+          "enum": ["scoped", "bounded", "broad"]
+        },
+        "maxEntities": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "idempotencyKey": {
+      "type": "string",
+      "minLength": 1
+    },
+    "dryRun": {
+      "enum": ["mandatory", "optional", "not_applicable"]
+    },
+    "sideEffects": {
+      "enum": ["read_only", "writes_system", "external_calls", "notifications"]
+    },
+    "requiredScopes": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "confirmation": {
+      "enum": ["automatic", "single", "typed", "multi_party", "cooling_off"]
+    },
+    "rollback": {
+      "enum": ["none", "rollback_api", "compensating_action", "manual"]
+    },
+    "examples": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["intent", "parameters"],
+        "properties": {
+          "intent": {
+            "type": "string",
+            "minLength": 1
+          },
+          "parameters": {
+            "type": "object"
+          }
+        }
+      }
+    },
+    "validationRules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["name", "expression"],
+        "properties": {
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "expression": {
+            "type": "string",
+            "minLength": 1
+          }
+        }
+      }
+    }
+  }
+}

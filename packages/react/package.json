@@ -1,0 +1,23 @@
+{
+  "name": "@aetheris-iui/react",
+  "version": "0.1.0",
+  "description": "React hooks and context for Aetheris IUI",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0"
+  },
+  "dependencies": {
+    "@aetheris-iui/core": "*"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "typescript": "^5.4.0"
+  }
+}

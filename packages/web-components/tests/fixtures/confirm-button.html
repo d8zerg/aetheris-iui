@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>aui-confirm-button fixture</title>
+  <script type="module" src="/src/aui-confirm-button.ts"></script>
+</head>
+<body>
+  <!-- Single mode -->
+  <aui-confirm-button id="single" mode="single"></aui-confirm-button>
+
+  <!-- Typed mode -->
+  <aui-confirm-button id="typed" mode="typed" typed-phrase="DELETE"></aui-confirm-button>
+
+  <!-- Multi-party mode -->
+  <aui-confirm-button id="multi" mode="multi_party"></aui-confirm-button>
+
+  <!-- Cooling-off mode (3 seconds for test speed) -->
+  <aui-confirm-button id="cooling" mode="cooling_off" cooling-seconds="3"></aui-confirm-button>
+
+  <!-- Automatic mode -->
+  <aui-confirm-button id="auto" mode="automatic"></aui-confirm-button>
+
+  <!-- Disabled single -->
+  <aui-confirm-button id="disabled" mode="single" disabled></aui-confirm-button>
+
+  <script>
+    window.__events = {};
+    ['single','typed','multi','cooling','auto','disabled'].forEach(id => {
+      const el = document.getElementById(id);
+      window.__events[id] = [];
+      el.addEventListener('aui:confirm',          () => window.__events[id].push('confirm'));
+      el.addEventListener('aui:send-for-approval', () => window.__events[id].push('send-for-approval'));
+    });
+  </script>
+</body>
+</html>

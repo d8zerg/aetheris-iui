@@ -45,6 +45,7 @@ Build/
 build-*/
 
 # CMake generated files
+CMakeUserPresets.json
 CMakeFiles/
 CMakeCache.txt
 cmake_install.cmake
@@ -61,9 +62,20 @@ compile_commands.json
 # vcpkg
 vcpkg_installed/
 
+# Conan
+conan.lock
+conanbuild.*
+conanrun.*
+graph_info.json
+
 # debug information files
 *.dwo
 
 # test output & cache
 Testing/
 .cache/
+
+
+node_modules/
+__pycache__/
+

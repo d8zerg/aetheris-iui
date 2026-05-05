@@ -1,0 +1,23 @@
+{
+  "name": "@aetheris-iui/vue",
+  "version": "0.1.0",
+  "description": "Vue 3 composables for Aetheris IUI",
+  "type": "module",
+  "main": "./src/index.ts",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "build": "tsc --noEmit"
+  },
+  "peerDependencies": {
+    "vue": ">=3.4.0"
+  },
+  "dependencies": {
+    "@aetheris-iui/core": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vue": "^3.4.0"
+  }
+}

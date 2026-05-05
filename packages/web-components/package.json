@@ -1,0 +1,29 @@
+{
+  "name": "@aetheris-iui/web-components",
+  "version": "0.1.0",
+  "description": "Web Components reference implementation for Aetheris-IUI",
+  "type": "module",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsc",
+    "test": "playwright test",
+    "test:headless": "playwright test --reporter=list",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@aetheris-iui/core": "*"
+  },
+  "devDependencies": {
+    "typescript": "^5.7.0",
+    "@playwright/test": "^1.50.0"
+  }
+}
